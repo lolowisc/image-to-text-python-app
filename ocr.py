@@ -1,9 +1,9 @@
-import sys
-import os
+# import sys
+# import os
 
-# 添加 packages 目录到 LD_LIBRARY_PATH
-sys.path.append(os.path.join(os.getcwd(), "packages"))
-os.environ['LD_LIBRARY_PATH'] = os.path.join(os.getcwd(), "packages")
+# # 添加 packages 目录到 LD_LIBRARY_PATH
+# sys.path.append(os.path.join(os.getcwd(), "packages"))
+# os.environ['LD_LIBRARY_PATH'] = os.path.join(os.getcwd(), "packages")
 
 
 # import easyocr as ocr  # OCR
