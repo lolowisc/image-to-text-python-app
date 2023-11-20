@@ -6,8 +6,8 @@
 # os.environ['LD_LIBRARY_PATH'] = os.path.join(os.getcwd(), "packages")
 
 
-# import easyocr as ocr  # OCR
-from paddleocr import PaddleOCR, draw_ocr
+import easyocr as ocr  # OCR
+# from paddleocr import PaddleOCR, draw_ocr
 import streamlit as st  # Web App
 from PIL import Image  # Image Processing
 import numpy as np  # Image Processing
@@ -34,8 +34,8 @@ image = st.file_uploader(label="Upload your image here: ", type=['png', 'jpg', '
 
 @st.cache_resource
 def load_model():
-    # reader = ocr.Reader(['en', 'ch_sim'], model_storage_directory='.')
-    reader = PaddleOCR(use_angle_cls=True, lang="ch")
+    reader = ocr.Reader(['en', 'ch_sim'], model_storage_directory='.')
+    # reader = PaddleOCR(use_angle_cls=True, lang="ch")
     return reader
 
 
@@ -46,19 +46,21 @@ if image is not None:
     st.image(input_image)  # display image
 
     with st.spinner("Pending..."):
-        # result = reader.readtext(np.array(input_image))
-        result = reader.ocr(np.array(input_image), cls=True)
+        result = reader.readtext(np.array(input_image))
+        # result = reader.ocr(np.array(input_image), cls=True)
 
-        result_mod = result[0]
+        # result_mod = result[0]
 
-        txts = [str(line[1][0]) for line in result_mod]
+        # txts = [str(line[1][0]) for line in result_mod]
 
-        # result_text = []  # empty list for results
-        #
-        # for text in result:
-        #     result_text.append(text[1])
+        # text_all = " ".join(txts)
 
-        text_all = " ".join(txts)
+        result_text = []  # empty list for results
+        
+        for text in result:
+            result_text.append(text[1])
+
+        text_all = " ".join(result_text)
 
         st.write(text_all)
     # st.success("Here you go!")
