@@ -3,3 +3,6 @@ numpy
 Pillow
 paddlepaddle
 paddleocr
+mesa-libGL
+libxext6
+libxrender1
