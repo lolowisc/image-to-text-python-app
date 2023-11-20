@@ -62,6 +62,8 @@ if image is not None:
 
         text_all = " ".join(result_text)
 
+        st.markdown("## After OCR: ")
+        
         st.write(result_text)
     # st.success("Here you go!")
     # st.balloons()
