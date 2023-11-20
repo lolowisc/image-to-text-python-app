@@ -34,7 +34,7 @@ image = st.file_uploader(label="Upload your image here: ", type=['png', 'jpg', '
 
 @st.cache_resource
 def load_model():
-    reader = ocr.Reader(['en', 'ch_sim'], model_storage_directory='.')
+    reader = ocr.Reader(['en', 'ch_sim'], model_storage_directory='.', gpu=False)
     # reader = PaddleOCR(use_angle_cls=True, lang="ch")
     return reader
 
