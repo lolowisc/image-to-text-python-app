@@ -1,4 +1,5 @@
-easyocr
 streamlit
 numpy
 Pillow
+paddlepaddle
+paddleocr
